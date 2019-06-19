@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  height: 100vh;
+  //cursor: url(../images/cursor.png), auto;
+  cursor: none;
+}
+.cursor {
+  z-index: 10000;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  position: absolute;
+  transition-duration: 300ms;
+  transition-timing-function: ease-out;
+  animation: cursorAnim 0.5s infinite alternate;
+  &::after {
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    border: 6px solid;
+    animation: cursorAnim2 0.5s infinite alternate;
+  }
+}
+.expand {
+  animation: cursorAnim3 0.5s forwards;
+  border: 1px solid red;
+}
+
+@keyframes cursorAnim {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.8);
+  }
+}
+@keyframes cursorAnim2 {
+  from {
+    transform: scale(1);
+    border-color: rgba($color: #000, $alpha: 0.5);
+  }
+  to {
+    transform: scale(0.4);
+    border-color: rgba($color: #fa0, $alpha: 0.7);
+  }
+}
+@keyframes cursorAnim3 {
+  0% {
+    transform: scale(0.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
